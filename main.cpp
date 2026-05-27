@@ -8,11 +8,31 @@ int main() {
     SetConsoleOutputCP(65001);
 
     string nomes[20];
-    int qtdAlunos, qtdDisciplinas;
+    int qtdAlunos, qtdDisciplinas, opcaoInicial;
     float notas[20][5];
     float media[20];
 
     cout << "=== SISTEMA DE NOTAS v4.0 ===" << endl;
+    cout << "1 - Novo relatório" << endl;
+    cout << "2 - Ver relatório salvo" << endl;
+    cout << "Escolha uma opção: " << endl;
+    cin >> opcaoInicial;
+
+    // Leitura de arquivo (COMMI 4)
+    if (opcaoInicial == 2) {
+        ifstream leitura("relatorio.txt");
+        if (leitura.is_open()) {
+            string linha;
+            cout << "\n";
+            while (getline(leitura, linha)) {
+                cout << linha << endl;
+            }
+            leitura.close();
+       }else {
+        cout << "Nenhum relatório encontrado." << endl;
+       }
+       return 0;
+    }
 
     do {
         cout << "Quantidade de alunos (1 a 20): ";
