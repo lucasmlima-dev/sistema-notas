@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include <windows.h>
+#include <fstream>
 
 using namespace std;
-
 int main() {
     SetConsoleOutputCP(65001);
 
@@ -25,6 +25,8 @@ int main() {
         cout << "Nome do aluno " << i + 1 << ": ";
         getline(cin, nomes[i]);
     }
+
+    // commit 1
 
     do {
         cout << "\nQuantidade de disciplinas (1 a 5): " << endl;
@@ -49,6 +51,8 @@ int main() {
         cout << "   " << i + 1 << ". " << nomes[i] << endl;
     }
 
+    // COMMIT 2
+
     cout << "\n=== RELATÓRIO ===" << endl;
     int aprovados = 0, recuperacao = 0, reprovados = 0;
     for (int i = 0; i < qtdAlunos; i++) {
@@ -66,6 +70,32 @@ int main() {
     }
 
     cout << "\nResumo: " << aprovados << " aprovados, " << reprovados << " reprovados, " << recuperacao << " recuperação." << endl;
+
+    // COMMIT 3
+
+    ofstream arquivo("relatorio.txt");
+
+    if (arquivo.is_open()) {
+        arquivo << "=== RELATÓRIO ===" << endl;
+        for(int i = 0; i < qtdAlunos; i++) {
+            arquivo << nomes[i] << " - Média: " << media[i] << " - ";
+            if (media[i] >= 7) {
+                arquivo << "Aprovado! :)" << endl;
+            } else if(media[i] >= 5) {
+                arquivo << "Recuperação!" << endl;
+            } else {
+                arquivo << "Reprovado! :(" << endl;
+            }
+        }
+        arquivo << "\nResumo: " << aprovados << " Aprovados, " << recuperacao << " Em recuperação, " << reprovados << " Reprovados." << endl;
+
+        arquivo.close();
+        cout << "\nRelatório criado com sucesso! Salvo como relatorio.txt" << endl;
+    } else {
+        cout << "Erro ao criar o arquivo.";
+    }
+
+    // COMMIT 4
 
     return 0;
 }
