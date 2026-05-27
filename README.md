@@ -20,17 +20,4 @@ O projeto foi construído focando na organização e armazenamento de dados, con
 
 * `main.cpp`: Código-fonte principal com toda a lógica do sistema.
 * `relatorio.txt`: Relatório gerado com a classificação e notas dos alunos.
-* `.gitignore`: Configuração para impedir que arquivos temporários ou executáveis (como o `main.exe`) sejam enviados ao GitHub.
-
----
-
-## 🛠️ Como Executar o Projeto
-
-### Pré-requisitos
-Você vai precisar de um compilador C++ instalado no seu computador (como o `GCC` / `MinGW`).
-
-### Passo a Passo
-
-1. **Clone este repositório:**
-   ```bash
-   git clone [https://github.com/lucasmlima-dev/sistema-notas.git](https://github.com/lucasmlima-dev/sistema-notas.git)
+* `.gitignore`: Configuração para impedir que arquivos temporários ou executáveis (como o `main.exe`) sejam enviados ao GitHub!
